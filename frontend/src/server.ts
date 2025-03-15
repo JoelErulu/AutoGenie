@@ -15,18 +15,6 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-/**
  * Serve static files from /browser
  */
 app.use(
@@ -36,6 +24,17 @@ app.use(
     redirect: false,
   }),
 );
+
+/**
+ * Handle dynamic routes (e.g. /vin-details/:vin)
+ * This does not involve prerendering, it just ensures SSR rendering happens for dynamic VIN routes.
+ */
+app.get('/vin-details/:vin', (req, res, next) => {
+  angularApp
+    .handle(req)
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
+    .catch(next);
+});
 
 /**
  * Handle all other requests by rendering the Angular application.
