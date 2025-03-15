@@ -1,0 +1,24 @@
+.card {
+    border-radius: 12px;
+    background-color: #ffffff; 
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .card-body {
+    background-color: #f7f9fc;
+  }
+  
+  .list-group-item {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+  
+  strong {
+    color: #007bff; 
+  }
+  
