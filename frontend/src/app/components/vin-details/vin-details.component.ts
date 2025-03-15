@@ -36,16 +36,14 @@ export class VinDetailsComponent implements OnInit {
     this.apiService.getCarDetails(vin).subscribe(
       data => {
         this.vinData = data;
-        if (!this.vinData) {
-          if (isPlatformBrowser(this.platformId)) {
-            window.location.reload();
-          }
+        if (!this.vinData && isPlatformBrowser(this.platformId)) {
+          window.location.reload(); 
         }
       },
       error => {
         this.errorMessage = 'Error fetching VIN details.';
         if (isPlatformBrowser(this.platformId)) {
-          window.location.reload();
+          window.location.reload(); 
         }
       }
     );

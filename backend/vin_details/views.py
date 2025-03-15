@@ -19,7 +19,7 @@ def get_vin_details(request):
         if vin_data and 'Results' in vin_data:
             filtered_data = {}
             for item in vin_data['Results']:
-                if item['Variable'] in ['Make', 'Model', 'Model Year', 'Manufacturer Name', 'Vehicle Type', 'Series', 'Plant City', 'Base Price ($)', 'Body Class']:
+                if item['Variable'] in ['Make', 'Model', 'Model Year', 'Manufacturer Name', 'Vehicle Type', 'Series', 'Plant City', 'Base Price ($)', 'Body Class', 'Gross Vehicle Weight Rating From']:
                     filtered_data[item['Variable']] = item['Value']
             
             return JsonResponse(filtered_data)

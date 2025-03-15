@@ -1,64 +1,38 @@
-<div class="container my-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow-lg border-0 rounded-lg">
-          
-          <div class="card-header bg-primary text-white text-center py-4 rounded-top">
-            <h2 class="h4 mb-0">Car Details</h2>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>Car Details</h2>
+      </div>
+  
+      <div class="card-body">
+        <div *ngIf="vinData; else loading">
+          <div class="vin-section">
+            <h4>VIN: <span>{{ vin }}</span></h4>
           </div>
   
-          <div class="card-body p-5">
-            <div *ngIf="vinData; else loading">
-              <h4 class="text-center text-primary mb-4">
-                VIN: <span class="font-weight-bold">{{ vin }}</span>
-              </h4>
-              
-              <div class="card mb-4 border-0">
-                <div class="card-header bg-light border-bottom">
-                  <h3 class="mb-0">Car Specifications</h3>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <strong>Make:</strong> {{ vinData.Make }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Model:</strong> {{ vinData.Model }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Manufacturer Name:</strong> {{ vinData['Manufacturer Name'] }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Model Year:</strong> {{ vinData['Model Year'] }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Plant City:</strong> {{ vinData['Plant City'] }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Series:</strong> {{ vinData.Series }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Vehicle Type:</strong> {{ vinData['Vehicle Type'] }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Base Price ($):</strong> ${{ vinData['Base Price ($)'] }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Body Class:</strong> {{ vinData['Body Class'] }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-  
-            <ng-template #loading>
-              <div class="text-center text-muted">
-                <div class="spinner-border" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-                <p>Loading car details...</p>
-              </div>
-            </ng-template>
+          <div class="car-specifications">
+            <h3>Car Specifications</h3>
+            <ul>
+              <li><strong>Make:</strong> {{ vinData.Make }}</li>
+              <li><strong>Model:</strong> {{ vinData.Model }}</li>
+              <li><strong>Manufacturer Name:</strong> {{ vinData['Manufacturer Name'] }}</li>
+              <li><strong>Model Year:</strong> {{ vinData['Model Year'] }}</li>
+              <li><strong>Plant City:</strong> {{ vinData['Plant City'] }}</li>
+              <li><strong>Series:</strong> {{ vinData.Series }}</li>
+              <li><strong>Vehicle Type:</strong> {{ vinData['Vehicle Type'] }}</li>
+              <li><strong>Base Price ($):</strong> ${{ vinData['Base Price ($)'] }}</li>
+              <li><strong>Body Class:</strong> {{ vinData['Body Class'] }}</li>
+              <li><strong>Weight Rating:</strong> {{ vinData['Gross Vehicle Weight Rating From'] }}</li>
+            </ul>
           </div>
         </div>
+  
+        <ng-template #loading>
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading car details...</p>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
