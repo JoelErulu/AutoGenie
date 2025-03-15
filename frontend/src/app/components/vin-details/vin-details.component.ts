@@ -4,8 +4,12 @@ import { ApiService } from '../../services/services';
 import { CommonModule } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ViewEncapsulation } from '@angular/core';
+
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
+
   standalone: true,
   selector: 'app-vin-details',
   templateUrl: './vin-details.component.html',
